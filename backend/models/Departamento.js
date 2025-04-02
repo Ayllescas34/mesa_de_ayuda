@@ -10,5 +10,10 @@ const Departamento = sequelize.define("Departamento", {
     nombreDepartamento: {
         type: DataTypes.STRING(100),
         allowNull: false
-    }
-})
+    },
+    descripcionDepartamento:{
+        type: DataTypes.TEXT,
+    },
+});
+
+module.exports = Departamento;
