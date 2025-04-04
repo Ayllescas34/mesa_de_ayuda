@@ -9,6 +9,9 @@ const TicketEquipo = sequelize.define("TicketEquipo", {
         autoIncrement: true,
         primaryKey: true,
     },  
+}, {
+    timestamps: false,
+    tableName: "TicketEquipo",
 });
 
 TicketEquipo.belongsTo(Ticket, {

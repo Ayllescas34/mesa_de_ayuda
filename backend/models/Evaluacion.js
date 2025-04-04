@@ -3,30 +3,33 @@ const sequelize = require("../config/database");
 const Ticket = require("./Ticket");
 const Usuario = require("./Usuario");
 
-const Evaluacion = sequelize.define("Evaluacion", {
+const Evaluacion = sequelize.define('Evaluacion', {
     idEvaluacion: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    calificacinEvaluación: {
-        type: DataTypes. INTEGER,
-        validate: {
-            min: 1,
-            max: 5,
-        },
+    calificacionEvaluacion: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 1,
+        max: 5,
+      },
     },
-    comentarioEvaluacion: {
-        type: DataTypes.TEXT,
+    comentariosEvaluacion: {
+      type: DataTypes.TEXT,
     },
-});
+  }, {
+    tableName: 'Evaluaciones',  // Asegúrate de que esté apuntando a la tabla correcta
+    timestamps: false,
+  });
 
 Evaluacion.belongsTo(Ticket, {
     foreignKey: "idTicket",
 });
-  
+
 Evaluacion.belongsTo(Usuario, {
     foreignKey: "idUsuario",
 });
-  
+
 module.exports = Evaluacion;

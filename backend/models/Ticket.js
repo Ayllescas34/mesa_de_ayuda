@@ -33,6 +33,8 @@ const Ticket = sequelize.define("Ticket", {
         type: DataTypes.ENUM("Baja", "Media", "Alta"),
         allowNull: false,
     },
+}, {
+    timestamps: false,
 });
 
 Ticket.belongsTo(Categoria, {

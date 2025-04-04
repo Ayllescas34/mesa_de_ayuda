@@ -3,11 +3,18 @@ const Categoria = require("../models/Categoria");
 exports.getCategorias = async (req, res) => {
   try {
     const categorias = await Categoria.findAll();
+    //console.log('Categorías obtenidas:', categorias); // Verificar los datos obtenidos
+
+    if (categorias.length === 0) {
+      return res.status(404).json({ message: "No hay categorías" });
+    }
     res.json(categorias);
   } catch (error) {
+    console.error("Error al obtener las categorías", error); // Log de error
     res.status(500).json({ message: "Error al obtener las categorías", error });
   }
 };
+
 
 exports.getCategoriaById = async (req, res) => {
   try {

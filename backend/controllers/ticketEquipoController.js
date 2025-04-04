@@ -2,9 +2,12 @@ const TicketEquipo = require("../models/TicketEquipo");
 
 exports.getTicketsEquipos = async (req, res) => {
   try {
-    const ticketsEquipos = await TicketEquipo.findAll();
-    res.json(ticketsEquipos);
+    const ticketEquipo = await TicketEquipo.findAll();
+    console.log("paso 1");
+    res.json(ticketEquipo);
+    console.log("paso 2");
   } catch (error) {
+    console.log("paso 1");
     res.status(500).json({ message: "Error al obtener los tickets de equipos", error });
   }
 };

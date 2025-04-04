@@ -2,12 +2,16 @@ const Evaluacion = require("../models/Evaluacion");
 
 exports.getEvaluaciones = async (req, res) => {
   try {
-    const evaluaciones = await Evaluacion.findAll();
-    res.json(evaluaciones);
+    const evaluaciones = await Evaluacion.findAll({
+      attributes: ['idEvaluacion', 'calificacionEvaluacion', 'comentariosEvaluacion', 'idTicket', 'idUsuario']
+    });
+    res.json(evaluaciones.map(evaluacion => evaluacion.get({ plain: true })));
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error al obtener las evaluaciones", error });
   }
 };
+
 
 exports.getEvaluacionById = async (req, res) => {
   try {

@@ -14,6 +14,8 @@ const Departamento = sequelize.define("Departamento", {
     descripcionDepartamento:{
         type: DataTypes.TEXT,
     },
+}, {
+    timestamps: false,
 });
 
 module.exports = Departamento;

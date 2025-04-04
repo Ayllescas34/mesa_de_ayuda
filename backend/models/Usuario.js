@@ -18,10 +18,12 @@ const Usuario = sequelize.define("Usuario", {
         unique: true,
         allowNull: false,
     },
+}, {
+    timestamps: false,  // 👈 Esto evita que Sequelize busque createdAt y updatedAt
+    tableName: "Usuarios", // 👈 Asegura que use el nombre correcto de la tabla
 });
 
-//Relaciones
-
+// Relaciones
 Usuario.belongsTo(Departamento, {
     foreignKey: "idDepartamento",
 });

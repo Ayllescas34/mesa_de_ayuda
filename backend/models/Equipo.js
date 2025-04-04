@@ -20,6 +20,8 @@ const Equipo = sequelize.define("Equipo", {
         type: DataTypes.TEXT,
         allowNull: false,
     },
+}, {
+    timestamps: false,
 });
 
 //Relaciones
